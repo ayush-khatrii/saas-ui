@@ -24,7 +24,7 @@ export default function RootLayout({
         className={`${lexend.className} ${lexend.className} antialiased`}
       >
         <Navbar />
-        <main className="max-w-7xl mx-auto">
+        <main className="">
           {children}
         </main>
       </body>
