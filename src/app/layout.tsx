@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/providers"
 
 const lexend = Lexend({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -24,9 +25,16 @@ export default function RootLayout({
         className={`${lexend.className} ${lexend.className} antialiased`}
       >
         <Navbar />
-        <main className="">
-          {children}
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

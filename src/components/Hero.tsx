@@ -5,10 +5,18 @@ import { motion } from "framer-motion";
 import { RiStarSFill } from 'react-icons/ri';
 import Showcase from './Showcase';
 
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-black text-white px-4 md:px-6 lg:px-8 py-16 md:pt-24">
       <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `radial-gradient(rgb(255 255 255 / 0.5) 1px, transparent 1px)`,
+            backgroundSize: '24px 24px'
+          }}
+        />
         <div className="absolute inset-0"
           style={{
             background: `
@@ -55,7 +63,7 @@ const Hero = () => {
           className="text-4xl sm:text-5xl lg:text-7xl font-bold mx-auto w-full sm:w-11/12 md:w-4/5 text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-100 to-gray-300"
         >
           Supercharge Your Coding Workflow with{' '}
-          <span className="text-rose-800 to-rose-300">CodeX</span>
+          <span className="text-rose-600">CodeX</span>
         </motion.h1>
 
         {/* Description */}

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,10 +39,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="px-4 md:px-8 lg:px-16 py-2 bg-transparent border-b border-gray-600/25 backdrop-blur-sm text-white fixed w-full z-50">
+      <nav className="px-4 md:px-8 lg:px-16 py-2 bg-transparent border-b border-gray-600/25 backdrop-blur-sm text-white fixed w-full z-[300]">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-xl font-bold z-50">
-            <span className="text-white hover:text-rose-800 rounded-md p-1 mr-2">CodeX</span>
+            <span className="dark:text-white text-black hover:text-rose-800 rounded-md p-1 mr-2">CodeX</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -56,12 +57,14 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden md:flex space-x-4">
-            <button className="px-4 py-2 rounded-md text-xs bg-rose-800 text-white hover:bg-rose-900 transition duration-300 ease-out">
+            <Button className="px-4 py-2 rounded-md text-xs bg-rose-800 text-white hover:bg-rose-900 transition duration-300 ease-out">
               Get CodeX
-            </button>
-            <button className="px-4 py-2 rounded-md  border border-zinc-800 text-xs hover:bg-zinc-800 transition duration-300 ease-out">
+            </Button>
+            <Button
+              variant={"outline"}
+              className="">
               Login
-            </button>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,7 +89,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black z-40 flex items-center text-left justify-center"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-40 flex items-center text-left justify-center"
           >
             <motion.div
               variants={menuVariants}
@@ -99,7 +102,7 @@ export default function Navbar() {
                 <motion.div key={link.name} variants={linkVariants}>
                   <Link
                     href={link.path}
-                    className="text-4xl my-4 text-left hover:text-rose-500 transition duration-300 ease-out"
+                    className="text-4xl dark:text-white text-black my-4 text-left hover:text-rose-500 transition duration-300 ease-out"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -107,12 +110,15 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div variants={linkVariants} className="mt-8 space-y-4">
-                <button className="w-full px-8 py-3 rounded-md text-lg bg-rose-800 text-white hover:bg-rose-900 transition duration-300 ease-out">
+                <Button className="w-full">
                   Get CodeX
-                </button>
-                <button className="w-full px-8 py-3 rounded-md border border-zinc-800 text-lg hover:bg-zinc-800 transition duration-300 ease-out">
+                </Button>
+                <Button
+                  className="w-full"
+                  variant="outline"
+                >
                   Login
-                </button>
+                </Button>
               </motion.div>
             </motion.div>
           </motion.div>
