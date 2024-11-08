@@ -45,7 +45,6 @@ export default function Navbar() {
             <span className="dark:text-white text-black hover:text-rose-800 rounded-md p-1 mr-2">CodeX</span>
           </Link>
 
-          {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -80,8 +79,6 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
-
-      {/* Fullscreen Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

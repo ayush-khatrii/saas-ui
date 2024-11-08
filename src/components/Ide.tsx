@@ -1,129 +1,57 @@
 "use client";
-
-import React, { forwardRef, useRef } from "react";
-
-import { cn } from "@/lib/utils";
-import { AnimatedBeam } from "@/components/ui/animated-beam";
-import FlickeringGrid from "./ui/flickering-grid";
-import { BiAtom } from "react-icons/bi";
 import { VscVscode } from "react-icons/vsc";
-import { DiAtom, DiChrome } from "react-icons/di";
-import { RxTriangleRight } from "react-icons/rx";
-import { RxTriangleLeft } from "react-icons/rx";
-
-import { SiCodesandbox, SiIntellijidea, SiSublimetext, SiWebstorm } from "react-icons/si";
-
-const Circle = forwardRef<
-  HTMLDivElement,
-  { className?: string; children?: React.ReactNode }
->(({ className, children }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full  bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-});
-
-Circle.displayName = "Circle";
+import { SiCodesandbox, SiIntellijidea, SiWebstorm, SiPycharm, SiVisualstudio, SiAndroidstudio } from "react-icons/si";
+import OrbitingCircles from "@/components/ui/orbiting-circles";
+import { DiAtom } from "react-icons/di";
+import FlickeringGrid from "./ui/flickering-grid";
+import Ripple from "./ui/ripple";
 
 export default function Ide() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
-  const div6Ref = useRef<HTMLDivElement>(null);
-  const div7Ref = useRef<HTMLDivElement>(null);
+  const orbitingIcons = [
+    { Icon: VscVscode, color: "#007ACC" },
+    { Icon: SiIntellijidea, color: "#FF315D" },
+    { Icon: SiWebstorm, color: "#00CDD7" },
+    { Icon: SiPycharm, color: "#21D789" },
+    { Icon: SiVisualstudio, color: "#5C2D91" },
+    { Icon: DiAtom, color: "#66595C" },
+    { Icon: SiAndroidstudio, color: "#3DDC84" },
+    { Icon: SiCodesandbox, color: "#000" },
+  ];
+
+  const radius = 200;
+  const duration = 40;
+  const delayIncrement = duration / orbitingIcons.length;
 
   return (
-    <div className="relative w-full overflow-hidden">
-      <div
-        className="relative flex w-full items-center justify-center overflow-hidden rounded-lg bg-background p-10 md:shadow-xl"
-        ref={containerRef}
-      >
-        <FlickeringGrid
-          className="z-0 absolute inset-0 size-full"
-          squareSize={6}
-          gridGap={6}
-          color="#6B7280"
-          maxOpacity={0.2}
-          flickerChance={0.1}
-        />
-        <div className="flex pt-20 size-full flex-col max-w-lg items-stretch justify-between gap-10">
-          <div className="flex flex-row items-center justify-between">
-            <Circle ref={div1Ref}>
-              <DiAtom color="black" size={60} />
-            </Circle>
-            <Circle ref={div5Ref}>
-              <VscVscode color="#0078D4" size={60} />
-            </Circle>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <Circle ref={div2Ref}>
-              <SiSublimetext color="#FF9800" size={60} />
-            </Circle>
-            <Circle ref={div4Ref} className="size-16">
-              <span className="text-rose-600 font-bold">CodeX</span>
-            </Circle>
-            <Circle ref={div6Ref}>
-              <SiWebstorm color="#000" size={60} />
-            </Circle>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <Circle ref={div3Ref}>
-              <SiIntellijidea color="#C32F29" size={60} />
-            </Circle>
-            <Circle ref={div7Ref}>
-              <SiCodesandbox color="#000" size={60} />
-            </Circle>
-          </div>
-        </div>
-
-        <AnimatedBeam
-          containerRef={containerRef}
-          fromRef={div1Ref}
-          toRef={div4Ref}
-          endYOffset={-10}
-        />
-        <AnimatedBeam
-          containerRef={containerRef}
-          fromRef={div2Ref}
-          toRef={div4Ref}
-        />
-        <AnimatedBeam
-          containerRef={containerRef}
-          fromRef={div3Ref}
-          toRef={div4Ref}
-          endYOffset={10}
-        />
-        <AnimatedBeam
-          containerRef={containerRef}
-          fromRef={div5Ref}
-          toRef={div4Ref}
-          endYOffset={-10}
-          reverse
-        />
-        <AnimatedBeam
-          containerRef={containerRef}
-          fromRef={div6Ref}
-          toRef={div4Ref}
-          reverse
-        />
-        <AnimatedBeam
-          containerRef={containerRef}
-          fromRef={div7Ref}
-          toRef={div4Ref}
-          endYOffset={10}
-          reverse
-        />
+    <section className="relative flex bg-black w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+      <div className="opacity-50">
+        <Ripple />
       </div>
-    </div>
+      <div className="w-full">
+        <div className="relative flex h-[600px] w-full flex-col items-center justify-center rounded-lg">
+          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-rose-600 bg-clip-text text-center text-3xl font-semibold leading-none text-transparent dark:from-rose-600 dark:to-rose-950">
+            CodeX
+          </span>
+          <h1 className="text-zinc-300 font-normal md:text-xl text-xl my-3">
+            Supported by All Major IDEs
+          </h1>
+
+          {/* Orbiting Icons */}
+          {orbitingIcons.map(({ Icon, color }, index) => (
+            <OrbitingCircles
+              key={index}
+              className="size-[50px] border-none bg-transparent"
+              radius={radius}
+              duration={duration}
+              delay={index * delayIncrement} // Apply staggered delay for even spacing
+            >
+              <div className="flex items-center justify-center rounded-full bg-zinc-600/30 p-2.5 transition-colors hover:bg-white/10">
+                <Icon size={32} color={color} />
+              </div>
+            </OrbitingCircles>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

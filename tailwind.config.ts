@@ -65,15 +65,71 @@ module.exports = {
     			}
     		},
     		animation: {
-    			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite'
+    			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite',
+    			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
+    			spotlight: 'spotlight 2s ease .75s 1 forwards',
+    			marquee: 'marquee var(--duration) infinite linear',
+    			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+    			'accordion-down': 'accordion-down 0.2s ease-out',
+    			'accordion-up': 'accordion-up 0.2s ease-out'
     		},
     		keyframes: {
+    			spotlight: {
+    				'0%': {
+    					opacity: '0',
+    					transform: 'translate(-72%, -62%) scale(0.5)'
+    				},
+    				'100%': {
+    					opacity: '1',
+    					transform: 'translate(-50%,-40%) scale(1)'
+    				}
+    			},
     			ripple: {
     				'0%, 100%': {
     					transform: 'translate(-50%, -50%) scale(1)'
     				},
     				'50%': {
     					transform: 'translate(-50%, -50%) scale(0.9)'
+    				}
+    			},
+    			orbit: {
+    				'0%': {
+    					transform: 'rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)'
+    				},
+    				'100%': {
+    					transform: 'rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)'
+    				}
+    			},
+    			marquee: {
+    				from: {
+    					transform: 'translateX(0)'
+    				},
+    				to: {
+    					transform: 'translateX(calc(-100% - var(--gap)))'
+    				}
+    			},
+    			'marquee-vertical': {
+    				from: {
+    					transform: 'translateY(0)'
+    				},
+    				to: {
+    					transform: 'translateY(calc(-100% - var(--gap)))'
+    				}
+    			},
+    			'accordion-down': {
+    				from: {
+    					height: '0'
+    				},
+    				to: {
+    					height: 'var(--radix-accordion-content-height)'
+    				}
+    			},
+    			'accordion-up': {
+    				from: {
+    					height: 'var(--radix-accordion-content-height)'
+    				},
+    				to: {
+    					height: '0'
     				}
     			}
     		}
