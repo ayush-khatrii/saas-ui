@@ -60,7 +60,7 @@ const footerData = {
 
 const Footer = () => {
   return (
-    <footer className="max-w-7xl h-[30rem] mx-auto text-foreground bg-background-900 body-font">
+    <footer className="max-w-7xl md:h-[30rem] pb-10 mx-auto text-foreground bg-background-900 body-font">
       <div className="container px-5 py-24 mx-auto flex items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="">
           <a className="flex title-font font-bold items-start justify-start text-rose-700">
@@ -82,7 +82,7 @@ const Footer = () => {
               <nav className="list-none font-light text-sm  mb-10 cursor-pointer">
                 {section.links.map((link) => (
                   <li key={link.name} className="mt-2 hover:underline">
-                    <a href={link.href} className="text-zinc-400 hover:text-white">
+                    <a className="text-zinc-400 hover:text-white">
                       {link.name}
                     </a>
                   </li>
@@ -96,11 +96,11 @@ const Footer = () => {
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p className="text-zinc-400 text-sm text-center sm:text-left">
             {footerData.copyright}
-            Designed and Developed by <span className="underline text-rose-800 ml-1">Ayush Khatri</span>
+            Designed and Developed by <a target="_blank" href="https://ayushkhatri.site" className="underline text-rose-800 ml-1">Ayush Khatri</a>
           </p>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }
 
