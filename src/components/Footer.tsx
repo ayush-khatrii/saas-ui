@@ -1,6 +1,5 @@
 import { FaXTwitter } from "react-icons/fa6";
 import { BsDiscord, BsGithub, BsLinkedin, BsYoutube } from "react-icons/bs";
-import { IoIosCodeWorking } from "react-icons/io"
 import { TbMailFilled } from "react-icons/tb";
 
 

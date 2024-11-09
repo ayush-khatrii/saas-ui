@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -74,9 +73,9 @@ const Pricing = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 items-strecth gap-5">
         {
-          pricingData.map((item) => (
+          pricingData.map((item, index) => (
             <>
-              <Card className={`${item.popular ? "border border-rose-700" : ""}`}>
+              <Card key={index} className={`${item.popular ? "border border-rose-700" : ""}`}>
                 <div className="relative w-full">
                   {
                     item.popular &&

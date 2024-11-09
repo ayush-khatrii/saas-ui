@@ -10,7 +10,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: { name: string; icon: React.ReactNode }[];
+  items: { icon: React.ReactNode }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -84,7 +84,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            key={item.name}
+            key={idx}
             className="w-[150px] max-w-full flex-shrink-0  p-4 flex justify-center items-center"
             style={{
               background:

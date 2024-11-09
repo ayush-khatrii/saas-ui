@@ -1,11 +1,7 @@
 "use client";
 import React from 'react';
 import { InfiniteMovingCards } from "@/components/ui/infinite-cards";
-import { DiAtom, DiChrome } from 'react-icons/di';
-import { VscVscode } from 'react-icons/vsc';
-import { SiCodesandbox, SiGithub, SiIntellijidea, SiJetbrains, SiNetflix, SiOnlyfans, SiSubrosetext, SiWebstorm } from 'react-icons/si';
-import { IoStarSharp } from 'react-icons/io5';
-import { motion } from "framer-motion";
+import { SiNetflix, SiOnlyfans } from 'react-icons/si';
 import { BsGoogle, BsMicrosoft, BsYoutube } from 'react-icons/bs';
 
 interface IDE {
@@ -15,11 +11,11 @@ interface IDE {
 }
 
 const IDEs = [
-  { name: 'Atom', installs: '400k+', icon: <BsGoogle size={50} /> },
-  { name: 'VS Code', installs: '1m+', icon: <BsMicrosoft size={50} /> },
-  { name: 'WebStorm', installs: '700k+', icon: <SiOnlyfans size={50} /> },
-  { name: 'JetBrains', installs: '1m+', icon: <SiNetflix size={50} /> },
-  { name: 'Codesandbox', install: '70k+', icon: <BsYoutube size={50} /> },
+  { icon: <BsGoogle size={50} /> },
+  { icon: <BsMicrosoft size={50} /> },
+  { icon: <SiOnlyfans size={50} /> },
+  { icon: <SiNetflix size={50} /> },
+  { icon: <BsYoutube size={50} /> },
 ];
 
 export default function Showcase() {

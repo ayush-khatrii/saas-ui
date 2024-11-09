@@ -1,4 +1,3 @@
-import { BsCodeSlash } from "react-icons/bs"
 import { HiSparkles } from "react-icons/hi";
 import { IoCodeWorkingSharp } from "react-icons/io5";
 

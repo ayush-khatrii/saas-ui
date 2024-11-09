@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Tabs } from "@/components/ui/Tabs";
 import { IoIosSearch } from "react-icons/io";
 import { IoSparklesSharp } from "react-icons/io5";
-import { IoDocumentText } from "react-icons/io5";
 import { FaCode } from "react-icons/fa6";
 import { HiMiniWrenchScrewdriver } from "react-icons/hi2";
 

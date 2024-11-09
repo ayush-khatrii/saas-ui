@@ -3,7 +3,6 @@ import { VscVscode } from "react-icons/vsc";
 import { SiCodesandbox, SiIntellijidea, SiWebstorm, SiPycharm, SiVisualstudio, SiAndroidstudio } from "react-icons/si";
 import OrbitingCircles from "@/components/ui/orbiting-circles";
 import { DiAtom } from "react-icons/di";
-import FlickeringGrid from "./ui/flickering-grid";
 import Ripple from "./ui/ripple";
 
 export default function Ide() {
